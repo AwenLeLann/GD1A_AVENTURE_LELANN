@@ -23,7 +23,7 @@ public class knockback : MonoBehaviour
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
 
-                if(other.gameObject.CompareTag("enemy") && other.isTrigger){
+                if(other.gameObject.CompareTag("enemy")){
                     hit.GetComponent<Ennemy>().currentState  =EnemyState.stagger;
                     other.GetComponent<Ennemy>().Knock(hit, knockTime, damage);
                 }
@@ -39,6 +39,27 @@ public class knockback : MonoBehaviour
         }
     }
 
-   
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (gameObject.CompareTag("enemy") && other.gameObject.CompareTag("Player"))
+        {
+            Rigidbody2D hit = other.gameObject.GetComponent<Rigidbody2D>();
+            if (hit != null)
+            {
+                Vector2 difference = hit.transform.position - transform.position;
+                difference = difference.normalized * thrust;
+                hit.AddForce(difference, ForceMode2D.Impulse);
+                if (other.gameObject.GetComponent<PlayerMouvement>().currentState != PlayerState.stagger)
+                {
+                    hit.GetComponent<PlayerMouvement>().currentState = PlayerState.stagger;
+                    other.gameObject.GetComponent<PlayerMouvement>().Knock(knockTime, damage);
+                }
+
+
+            }
+        }
+    }
+
+
 
 }

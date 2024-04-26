@@ -19,7 +19,10 @@ public class PlayerMouvement : MonoBehaviour
     private Animator animator;
     public VectorValue startingPosition;
     public FloatValue currentHealth;
-
+    public SignalGame playerHealthSignal;
+    public Inventory playerInventory;
+    public SpriteRenderer receivedItemSprite;
+ 
     void Start()
     {
         currentState = PlayerState.walk;
@@ -33,7 +36,10 @@ public class PlayerMouvement : MonoBehaviour
    
     void Update()
     {
-
+        //Joueur en interaction ?
+        if(currentState == PlayerState.interact){
+            return;
+        }
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -54,14 +60,35 @@ public class PlayerMouvement : MonoBehaviour
         currentState = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.36f);
+        yield return new WaitForSeconds(.32f);
+        if(currentState != PlayerState.interact){
+            currentState = PlayerState.walk;
+        }
         currentState = PlayerState.walk;
     }
+
+    public void RaiseItem(){
+        if(playerInventory.currentItem != null){
+
+            if(currentState != PlayerState.interact){
+                animator.SetBool("receive item", true);
+                currentState = PlayerState.interact;
+                receivedItemSprite.sprite = playerInventory.currentItem.itemSprite;
+            }else{
+                animator.SetBool("receive item", false);
+                currentState = PlayerState.idle;
+                receivedItemSprite.sprite = null;
+                playerInventory.currentItem = null;
+            }
+        }
+        
+    }
+
     void UpdateAnimationAndMove()
     {
         if (change != Vector3.zero)
         {
-            MoveCharacter();
+            //MoveCharacter();
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
@@ -71,14 +98,31 @@ public class PlayerMouvement : MonoBehaviour
             animator.SetBool("moving", false);
         }
     }
+
+    private void FixedUpdate()
+    {
+        MoveCharacter();
+    }
     void MoveCharacter()
     {
         change.Normalize();
-        myRigidbody.MovePosition(transform.position + change * speed * Time.deltaTime);
+        myRigidbody.MovePosition(transform.position + change * speed * Time.fixedDeltaTime);
     }
     
     public void Knock(float knockTime, float damage){
-        StartCoroutine(KnockCo(knockTime));
+        currentHealth.RuntimeValue -= damage;
+        playerHealthSignal.Raise();
+        if (currentHealth.RuntimeValue > 0)
+        {
+            
+            StartCoroutine(KnockCo(knockTime));
+           
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+        
     }
         private IEnumerator KnockCo(float knockTime)
     {
