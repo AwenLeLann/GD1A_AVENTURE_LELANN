@@ -54937,6 +54937,14 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 6272982854411047589, guid: 95e365c182164d84f83487220d931ea4, type: 3}
+      propertyPath: camMax
+      value: 
+      objectReference: {fileID: 11400000, guid: 4032802f0a7376b44bdf89936bb49813, type: 2}
+    - target: {fileID: 6272982854411047589, guid: 95e365c182164d84f83487220d931ea4, type: 3}
+      propertyPath: camMin
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f70b47ca1b6abf4ca6059b9730a5b63, type: 2}
+    - target: {fileID: 6272982854411047589, guid: 95e365c182164d84f83487220d931ea4, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1659691952}
@@ -76812,7 +76820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443324069868220840, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: m_Size.y
-      value: 1.017055
+      value: 1.4348679
       objectReference: {fileID: 0}
     - target: {fileID: 1443324069868220840, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: m_Offset.x
@@ -76820,7 +76828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443324069868220840, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: m_Offset.y
-      value: -1.4901936
+      value: -35.954258
       objectReference: {fileID: 0}
     - target: {fileID: 1443324069868220840, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: m_IsTrigger
@@ -76830,6 +76838,14 @@ PrefabInstance:
       propertyPath: fadeWait
       value: 0.33
       objectReference: {fileID: 0}
+    - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
+      propertyPath: cameraMax
+      value: 
+      objectReference: {fileID: 11400000, guid: 35093bbb26bd5a34589200afe832f16d, type: 2}
+    - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
+      propertyPath: cameraMin
+      value: 
+      objectReference: {fileID: 11400000, guid: b40696de499cad24eb2b11af728c8c53, type: 2}
     - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: fadeInPanel
       value: 
@@ -76843,8 +76859,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fe7077f2e1286044f880491036957ad3, type: 2}
     - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
+      propertyPath: cameraNewMax.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
+      propertyPath: cameraNewMax.y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
+      propertyPath: cameraNewMin.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
+      propertyPath: cameraNewMin.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152756508095139054, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: playerPosition.y
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4620928995410125110, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76852,7 +76884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620928995410125110, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4620928995410125110, guid: 143e36d02646a3e4b9d82d768316866d, type: 3}
       propertyPath: m_LocalPosition.z

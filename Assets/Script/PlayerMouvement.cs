@@ -22,6 +22,8 @@ public class PlayerMouvement : MonoBehaviour
     public SignalGame playerHealthSignal;
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
+    //ref pr la cam
+    public SignalGame playerHit;
  
     void Start()
     {
@@ -126,6 +128,7 @@ public class PlayerMouvement : MonoBehaviour
     }
         private IEnumerator KnockCo(float knockTime)
     {
+        playerHit.Raise();
         if(myRigidbody != null)
         {
             yield return new WaitForSeconds(knockTime);

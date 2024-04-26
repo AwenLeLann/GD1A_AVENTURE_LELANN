@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "projectodelamama.sln"
+    "dotnet.defaultSolution": "GD1A_AVENTURE_LELANN.sln"
 }

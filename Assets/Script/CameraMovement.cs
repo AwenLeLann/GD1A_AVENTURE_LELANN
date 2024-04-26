@@ -8,8 +8,17 @@ public class CameraMovement : MonoBehaviour
     public float smoothing;
     public Vector2 maxPosition;
     public Vector2 minPosition;
+
+    public Animator anim;
+   //reset positon :
+    public VectorValue camMin;
+    public VectorValue camMax;
+
     void Start()
     {
+        maxPosition = camMax.initialValue;
+        minPosition = camMin.initialValue;
+        anim = GetComponent<Animator>();
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
     }
 
@@ -25,4 +34,15 @@ public class CameraMovement : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
         }
     }
+
+    public void BeginKick(){
+        anim.SetBool("kick_active", true);
+        StartCoroutine(KickCo());
+    }
+
+public IEnumerator KickCo(){
+    yield return null;
+    anim.SetBool("kick_active", false);
+}
+
 }
