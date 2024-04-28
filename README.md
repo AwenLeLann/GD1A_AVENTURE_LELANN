@@ -5,7 +5,9 @@ Interaction : E
 Pause : esc
 
 
-Ce qui manque :
+Ce qui manque/fini :
 -Combat Boss
 -Mini map pas fini
+-Inventaire pas fini
++ Quelques bugs / glitchs
 
