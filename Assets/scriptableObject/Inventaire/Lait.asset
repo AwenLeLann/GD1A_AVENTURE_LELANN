@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe370bdaca2d7b4fbe077948f80a0ce, type: 3}
+  m_Name: Lait
+  m_EditorClassIdentifier: 
+  itemName: Lait
+  itemDescripation: Du lait bien frais
+  itemImage: {fileID: 1768168448, guid: 4096e341f2885d141bb5ccf8d4facd9b, type: 3}
+  numberHeld: 1
+  usable: 0
+  unique: 1
